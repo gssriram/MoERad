@@ -28,13 +28,15 @@ In the terminal based on the dataset for which you need to predict the reports, 
 
 (a) IU-Xray
 
-`python inference.py --input_json_file "data/iu_xray/ReXRank_IUXray_test.json" --save_json_file "results/iu_xray/MoERad.json" --img_root_dir "<PREFIX PATH TO FILES>" --chkpt_path "models/MoE_model-IUXray.pt"
-`
+```
+python inference.py --input_json_file "data/iu_xray/ReXRank_IUXray_test.json" --save_json_file "results/iu_xray/MoERad.json" --img_root_dir "<PREFIX PATH TO FILES>" --chkpt_path "models/MoE_model-IUXray.pt"
+````
 
 (b) MIMIC-CXR
 
-`python inference.py --input_json_file "data/mimic-cxr/ReXRank_MIMICCXR_test.json" --save_json_file "results/mimic-cxr/MoERad.json" --img_root_dir "<PREFIX PATH TO FILES>" --chkpt_path "models/MoE_model-MIMIC.pt"
-`
+```
+python inference.py --input_json_file "data/mimic-cxr/ReXRank_MIMICCXR_test.json" --save_json_file "results/mimic-cxr/MoERad.json" --img_root_dir "<PREFIX PATH TO FILES>" --chkpt_path "models/MoE_model-MIMIC.pt"
+```
 
 This would result in a `MoERad.json` file in the path specified in `--save_json_file` that contains predicted reports. 
 
