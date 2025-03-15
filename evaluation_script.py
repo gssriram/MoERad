@@ -20,6 +20,7 @@ def split_json(input_json_file, GT_REPORTS, PREDICTED_REPORTS):
     for study_id, input_data_idx in input_data_dict.items():
         model_prediction = input_data_idx['model_prediction']
         findings = input_data_idx['section_findings']
+        findings = ' '.join(findings.split())
         impression = input_data_idx['section_impression']
 
         # Handle NaN values
@@ -48,8 +49,8 @@ def split_json(input_json_file, GT_REPORTS, PREDICTED_REPORTS):
     if predicted_reports_df['report'].isnull().values.any():
         print("WARNING: There are NaN values in 'report' column of predicted_reports_df.")
 
-input_json_file = 'results/iu_xray/MoERad.json'
-GT_REPORTS = 'results/iu_xray/gts.csv'
-PREDICTED_REPORTS = 'results/iu_xray/preds.csv'
+input_json_file = 'results/iu_xray/MoERad.json' # Path to generated MoERad.json file
+GT_REPORTS = 'results/iu_xray/gts.csv' # your preferred path to place the gts.csv file
+PREDICTED_REPORTS = 'results/iu_xray/preds.csv' # your preferred path to place the preds.csv file
 
 split_json(input_json_file, GT_REPORTS, PREDICTED_REPORTS)

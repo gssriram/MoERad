@@ -11,6 +11,7 @@ parser = argparse.ArgumentParser(description='get_entities')
 parser.add_argument('--input_json_file', type=str,default='data/iu_xray/ReXRank_IUXray_test.json')
 parser.add_argument('--save_json_file', type=str,default='results/iu_xray/MoERad.json')
 parser.add_argument('--img_root_dir', type=str,default='/teamspace/studios/relieved-sapphire-uabn/R2Gen/data/iu_xray/images/')
+parser.add_argument('--chkpt_path', type=str,default='models/MoE_model-IUXray.pt')
 
 args = parser.parse_args()
 
@@ -30,7 +31,7 @@ model = MoERad(GPTConfig(), dropout_p=0.0)
 model.to(device)
 
 # Loading the checkpoints
-chkpt = torch.load('models/MoE_model.pt')
+chkpt = torch.load(args.chkpt_path)
 state_dict = chkpt['model']
 
 for name in list(state_dict.keys()):
@@ -39,7 +40,7 @@ for name in list(state_dict.keys()):
     del state_dict[name]
 
 model.load_state_dict(chkpt['model'], strict=True)
-print('=> Model Checkpoint loaded successfully')
+print(f'=> Model Checkpoint loaded successfully from {args.chkpt_path}')
 
 
 # Load the dataset
