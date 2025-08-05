@@ -5,17 +5,18 @@ This is the implementation of MoERad that was submitted as part of [ReXrank](htt
 ## Download Model Checkpoints
 The code requires the following checkpoints to generate reports: `pretrained_BCL.pt`, `MoE_model-IUXray.pt`, and `MoE_model-MIMIC.pt`.
 
-You can download the `pretrained_BCL.pt` and `MoE_model-IUXray.pt` checkpoints from this [Google Drive link](https://drive.google.com/drive/folders/1CtzPf39mpvpW6l3l6UcfbP6ghGVkpshX?usp=sharing). Please download the `MoE_model-MIMIC.pt` checkpoint from this [Google Drive link](https://drive.google.com/drive/folders/1aZeGJ18F4b2RQH1mVAfuJGLa-8YsYKLe?usp=sharing). Once downloaded, please place all the three files in the `models` folder.
+You can download the `pretrained_BCL.pt` and `MoE_model-IUXray.pt` checkpoints from this [Google Drive link](https://drive.google.com/drive/folders/1CtzPf39mpvpW6l3l6UcfbP6ghGVkpshX?usp=sharing). Once downloaded, please place all the three files in the `models` folder.
 
 ## IU-Xray Test Split Evaluation Score
-| Model | BLEU (↑) | BERT Score (↑) | Semb Score (↑) | RadGraph Combined (↑) | RadCliq-v0 (↓) | RadCliq-v1 (↓) | 
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-|MoERad-IU | 0.2704 | 0.5421 | 0.6355 | 0.3397 | 2.3472 | 0.5000 |
+| Model | BLEU (↑) | BERT Score (↑) | Semb Score (↑) | RadGraph Combined (↑) | 1/RadCliq-v1 (↑) | RATE Score (↑) | GREEN (↑) | 1/FineRadScore (↑) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| MoERad-IU | 0.277 | 0.525 | 0.641 | 0.341 | 1.922 | 0.684 | 0.665 | 0.587 |
 
-## MIMIC-CXR Test Split Evaluation Score
-| Model | BLEU (↑) | BERT Score (↑) | Semb Score (↑) | RadGraph Combined (↑) | RadCliq-v0 (↓) | RadCliq-v1 (↓) | 
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-|MoERad-MIMIC | 0.1607 | 0.3613 | 0.3347 | 0.1414 | 3.6917 | 1.3447 |
+## ReXGradient Private Split Evaluation Score
+| Model | BLEU (↑) | BERT Score (↑) | Semb Score (↑) | RadGraph Combined (↑) | 1/RadCliq-v1 (↑) | RATE Score (↑) | GREEN (↑) | 1/FineRadScore (↑) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| MoERad-IU | 0.227 | 0.434 | 0.446 | 0.247 | 1.018 | 0.575 | 0.494 | 0.468 |
+
 
 ## Run Inference
 Please update the defaults of the following Args in the `inference.py` file as per your preference:
@@ -31,12 +32,6 @@ In the terminal based on the dataset for which you need to predict the reports, 
 ```
 python inference.py --input_json_file "data/iu_xray/ReXRank_IUXray_test.json" --save_json_file "results/iu_xray/MoERad.json" --img_root_dir "<PREFIX PATH TO FILES>" --chkpt_path "models/MoE_model-IUXray.pt"
 ````
-
-(b) MIMIC-CXR
-
-```
-python inference.py --input_json_file "data/mimic-cxr/ReXRank_MIMICCXR_test.json" --save_json_file "results/mimic-cxr/MoERad.json" --img_root_dir "<PREFIX PATH TO FILES>" --chkpt_path "models/MoE_model-MIMIC.pt"
-```
 
 This would result in a `MoERad.json` file in the path specified in `--save_json_file` that contains predicted reports. 
 
