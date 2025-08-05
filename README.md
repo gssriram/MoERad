@@ -1,9 +1,9 @@
 # MoERad: Mixture of Experts for Radiology Report Generation
 
-This is the implementation of MoERad that was submitted as part of [ReXrank](https://rexrank.ai/) Leaderboard. We have trained and evaluated two variants of the MoERad model on IU-Xray and MIMIC-CXR-JPG datasets. The models' predictions on IU-Xray and MIMIC test splits and their corresponding CXR-Metrics scores can be found in the `results/iu_xray` and `results/mimic-car` folders, respectively. The model generates only the "Findings" part of the report.
+This is the implementation of MoERad that was submitted as part of [ReXrank](https://rexrank.ai/) Leaderboard. We have trained and evaluated two variants of the MoERad model on IU-Xray dataset. The models' predictions on IU-Xray and the corresponding CXR-Metrics scores can be found in the `results/iu_xray` folder. The model generates only the "Findings" part of the report.
 
 ## Download Model Checkpoints
-The code requires the following checkpoints to generate reports: `pretrained_BCL.pt`, `MoE_model-IUXray.pt`, and `MoE_model-MIMIC.pt`.
+The code requires the following checkpoints to generate reports: `pretrained_BCL.pt` and `MoE_model-IUXray.pt`.
 
 You can download the `pretrained_BCL.pt` and `MoE_model-IUXray.pt` checkpoints from this [Google Drive link](https://drive.google.com/drive/folders/1CtzPf39mpvpW6l3l6UcfbP6ghGVkpshX?usp=sharing). Once downloaded, please place all the three files in the `models` folder.
 
