@@ -5,7 +5,7 @@ This is the implementation of MoERad that was submitted as part of [ReXrank](htt
 ## Download Model Checkpoints
 The code requires the following checkpoints to generate reports: `pretrained_BCL.pt` and `MoE_model-IUXray.pt`.
 
-You can download the `pretrained_BCL.pt` and `MoE_model-IUXray.pt` checkpoints from this [Google Drive link](https://drive.google.com/drive/folders/1CtzPf39mpvpW6l3l6UcfbP6ghGVkpshX?usp=sharing). Once downloaded, please place all the three files in the `models` folder.
+You can download the `pretrained_BCL.pt` and `MoE_model-IUXray.pt` checkpoints from this [Google Drive link](https://drive.google.com/drive/u/3/folders/1CtzPf39mpvpW6l3l6UcfbP6ghGVkpshX). Once downloaded, please place all the three files in the `models` folder.
 
 ## IU-Xray Test Split Evaluation Score
 | Model | BLEU (↑) | BERT Score (↑) | Semb Score (↑) | RadGraph Combined (↑) | 1/RadCliq-v1 (↑) | RATE Score (↑) | GREEN (↑) | 1/FineRadScore (↑) |
