@@ -5,7 +5,7 @@ This is the implementation of MoERad that was submitted as part of [ReXrank](htt
 ## Download Model Checkpoints
 The code requires the following checkpoints to generate reports: `pretrained_BCL.pt` and `MoE_model-IUXray.pt`.
 
-You can download the `pretrained_BCL.pt` and `MoE_model-IUXray.pt` checkpoints from this [Google Drive link](https://drive.google.com/drive/u/3/folders/1CtzPf39mpvpW6l3l6UcfbP6ghGVkpshX). Once downloaded, please place all the three files in the `models` folder.
+If you wish to download the checkpoint files, please fill this [Form](https://docs.google.com/forms/d/e/1FAIpQLSdFgohBvX979devY5sbfPwq2M-nU7gRMtqo-iVhKj7BPN_Tug/viewform?usp=dialog). You would get access to download the checkpoint files, once we receive your request. Once downloaded, please place all the three files in the `models` folder.
 
 ## IU-Xray Test Split Evaluation Score
 | Model | BLEU (↑) | BERT Score (↑) | Semb Score (↑) | RadGraph Combined (↑) | 1/RadCliq-v1 (↑) | RATE Score (↑) | GREEN (↑) | 1/FineRadScore (↑) |
@@ -39,6 +39,20 @@ Once this output JSON file is created, please run the `evaluation_script.py` fil
 
 ## MoERad Architecture
 ![](./figures/MoERad_Archi.png) 
+
+## Citation
+If you find our work useful and planning to use in any of your work, please cite:
+```
+@InProceedings{10.1007/978-3-032-09569-5_35,
+author="Gnana Sambanthan, Sriram and Sharma, Monika",
+title="MoERad: Mixture of Experts for Radiology Report Generation from Chest X-Ray Images",
+booktitle="Applications of Medical Artificial Intelligence",
+year="2026",
+publisher="Springer Nature Switzerland",
+pages="349--359",
+isbn="978-3-032-09569-5"
+}
+```
 
 ## Acknowledgement
 This work inherits code from [BCL](https://github.com/FlamieZhu/Balanced-Contrastive-Learning) and [Build nanoGPT](https://github.com/karpathy/build-nanogpt). We extend our gratitude to them.
